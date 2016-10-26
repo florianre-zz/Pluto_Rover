@@ -44,7 +44,7 @@ class TestRover < Test::Unit::TestCase
 
     rover.turn_left
 
-    assert_equal(rover.direction, 'E')
+    assert_equal(rover.direction, 'W')
     assert_equal(rover.positionX, initial_positionX)
     assert_equal(rover.positionY, initial_positionY)
   end
