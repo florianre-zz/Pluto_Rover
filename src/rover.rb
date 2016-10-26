@@ -11,6 +11,7 @@ class Rover
 	@@width = 20
 	@@height = 20
 
+  # TODO: Add check to see if position is in bounds of map
 	def initialize(direction, positionX, positionY)
 		@positionX = positionX
 		@positionY = positionY
@@ -18,6 +19,7 @@ class Rover
 		@map = Map.new(@@width, @@height)
 	end
 
+  # TODO: Implement obstacle feature
 	def move(command)
   	case @direction
 			when "N"

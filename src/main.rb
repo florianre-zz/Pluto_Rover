@@ -12,6 +12,8 @@ def main
 	STDOUT.flush
 	command = gets.chomp
 
+	# TODO: Check commands valid 
+
 	process(command, rover)
 end
 

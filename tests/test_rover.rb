@@ -3,6 +3,9 @@ require './src/rover.rb'
 
 class TestRover < Test::Unit::TestCase
 
+  # TODO: Add more tests to check more cases
+  # TODO: Check correct functions are being called
+
   def test_initialise
     initial_direction = 'N'
     initial_positionX = 0

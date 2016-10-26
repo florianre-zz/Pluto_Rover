@@ -8,4 +8,6 @@ class Map
 		@height = height
 	end
 
+  # TODO: Add obstacle function that creates obstacles in the map
+
 end
