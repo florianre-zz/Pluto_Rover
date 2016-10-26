@@ -4,6 +4,8 @@ class Rover
   attr_reader :positionX
 	attr_reader :positionY
 
+	@@possible_directions = ['N', 'W', 'S', 'E']
+
 	def initialize(direction, positionX, positionY)
 		@positionX = positionX
 		@positionY = positionY
@@ -37,7 +39,9 @@ class Rover
 	end
 
 	def turn_left
-
+		curr_index = @@possible_directions.index(@direction)
+		new_index = (curr_index - 1) % @@possible_directions.length
+		@direction = @@possible_directions[new_index]
 	end
 
 	def turn_right
