@@ -10,4 +10,30 @@ class TestRover < Test::Unit::TestCase
     assert_equal(rover.positionY, 0)
   end
 
+  def test_move_forward
+    initial_direction = 'N'
+    initial_positionX = 0
+    initial_positionY = 0
+    rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
+
+    rover.move_forward()
+
+    assert_equal(rover.direction, initial_direction)
+    assert_equal(rover.positionX, initial_positionX)
+    assert_equal(rover.positionY, initial_positionY + 1)
+  end
+
+  def test_move_backward
+    initial_direction = 'E'
+    initial_positionX = 4
+    initial_positionY = 5
+    rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
+
+    rover.move_backward()
+
+    assert_equal(rover.direction, initial_direction)
+    assert_equal(rover.positionX, initial_positionX - 1)
+    assert_equal(rover.positionY, initial_positionY)
+  end
+
 end
