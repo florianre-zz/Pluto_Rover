@@ -1,40 +1,46 @@
+require './src/map.rb'
+
 class Rover
 
   attr_reader :direction
   attr_reader :positionX
 	attr_reader :positionY
+  attr_reader :map
 
 	@@possible_directions = ['W', 'N', 'E', 'S']
+	@@width = 20
+	@@height = 20
 
 	def initialize(direction, positionX, positionY)
 		@positionX = positionX
 		@positionY = positionY
 	  @direction = direction
+		@map = Map.new(@@width, @@height)
 	end
 
 	def move_forward
   	case @direction
 			when "N"
-				@positionY += 1
+				@positionY = (@positionY + 1) % @@height
 			when "S"
-				@positionY -= 1
+				@positionY = (@positionY - 1) % @@height
 			when "W"
-				@positionX -= 1
+				@positionX = (@positionX - 1) % @@width
 			when "E"
-				@positionX += 1
+				@positionX = (@positionX + 1) % @@width
 		end
 	end
 
 	def move_backward
 		case @direction
 			when "N"
-				@positionY -= 1
+				@positionY = (@positionY - 1) % @@height
 			when "S"
-				@positionY += 1
+				@positionY = (@positionY + 1) % @@height
 			when "W"
-				@positionX += 1
+				@positionX = (@positionX - 1) % @@width
 			when "E"
-				@positionX -= 1
+				@positionX = (@positionX - 1) % @@width
 		end
 	end
 
