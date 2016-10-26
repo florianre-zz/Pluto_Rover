@@ -1,8 +1,13 @@
 require './src/rover.rb'
 
 def main
-	rover = Rover.new('S', 10, 10)
+	initial_direction = 'N'
+	initial_positionX = 0
+	initial_positionY = 0
+	rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
 
+  puts "Rover at #{rover.positionX}, #{rover.positionY} facing #{rover.direction}"
+  puts "Change the initial parameters in the main method if you want."
 	puts "Enter a command of one or more of the following: F, B, L, R"
 	STDOUT.flush
 	command = gets.chomp
@@ -19,7 +24,7 @@ def process(command, rover)
         rover.turn(c)
 		end
 
-		puts "Rover at #{rover.positionX}, #{rover.positionY} facing #{rover.direction}"
+		puts "#{c}: Rover at #{rover.positionX}, #{rover.positionY} facing #{rover.direction}"
 	}
 end
 
