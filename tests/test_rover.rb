@@ -46,7 +46,7 @@ class TestRover < Test::Unit::TestCase
     initial_positionY = 0
     rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
 
-    rover.turn_left
+    rover.turn('L')
 
     assert_equal(rover.direction, 'S')
     assert_equal(rover.positionX, initial_positionX)
@@ -59,7 +59,7 @@ class TestRover < Test::Unit::TestCase
     initial_positionY = 0
     rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
 
-    rover.turn_right
+    rover.turn('R')
 
     assert_equal(rover.direction, 'N')
     assert_equal(rover.positionX, initial_positionX)

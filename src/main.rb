@@ -15,10 +15,8 @@ def process(command, rover)
 		case c
 			when 'F', 'B'
 				rover.move(c)
-      when 'L'
-        rover.turn_left
-      when 'R'
-        rover.turn_right
+      when 'L', 'R'
+        rover.turn(c)
 		end
 
 		puts "Rover at #{rover.positionX}, #{rover.positionY} facing #{rover.direction}"

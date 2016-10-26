@@ -35,15 +35,9 @@ class Rover
 		end
 	end
 
-	def turn_left
-		curr_index = @@possible_directions.index(@direction)
-		new_index = (curr_index - 1) % @@possible_directions.length
-		@direction = @@possible_directions[new_index]
-	end
-
-	def turn_right
-		curr_index = @@possible_directions.index(@direction)
-		new_index = (curr_index + 1) % @@possible_directions.length
+  def turn(command)
+ 		curr_index = @@possible_directions.index(@direction)
+		new_index = (command == 'L' ? (curr_index - 1) : (curr_index + 1)) % @@possible_directions.length
 		@direction = @@possible_directions[new_index]
 	end
 
