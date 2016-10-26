@@ -4,8 +4,12 @@ require './src/rover.rb'
 class TestRover < Test::Unit::TestCase
 
   def test_initialise
-  	rover = Rover.new('N', 0, 0)
-  	assert_equal(rover.direction, 'N')
+    initial_direction = 'N'
+    initial_positionX = 0
+    initial_positionY = 0
+    rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
+
+  	assert_equal(rover.direction, initial_direction)
     assert_equal(rover.positionX, 0)
     assert_equal(rover.positionY, 0)
   end
@@ -60,6 +64,33 @@ class TestRover < Test::Unit::TestCase
     assert_equal(rover.direction, 'N')
     assert_equal(rover.positionX, initial_positionX)
     assert_equal(rover.positionY, initial_positionY)
+  end
+
+  def test_wrapping_width
+    initial_direction = 'W'
+    initial_positionX = 0
+    initial_positionY = 0
+    rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
+
+    rover.move_forward
+
+    assert_equal(rover.direction, initial_direction)
+    assert_equal(rover.positionX, rover.map.width - 1)
+    assert_equal(rover.positionY, initial_positionY)
+
+  end
+
+  def test_wrapping_height
+    initial_direction = 'N'
+    initial_positionX = 0
+    initial_positionY = 0
+    rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
+
+    rover.move_backward
+
+    assert_equal(rover.direction, initial_direction)
+    assert_equal(rover.positionX, initial_positionX)
+    assert_equal(rover.positionY, rover.map.height - 1)
   end
 
 end
