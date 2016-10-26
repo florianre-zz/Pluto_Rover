@@ -36,4 +36,12 @@ class Rover
 		end
 	end
 
+	def turn_left
+
+	end
+
+	def turn_right
+
+	end
+
 end

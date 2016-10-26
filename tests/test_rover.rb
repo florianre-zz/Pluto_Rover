@@ -36,4 +36,30 @@ class TestRover < Test::Unit::TestCase
     assert_equal(rover.positionY, initial_positionY)
   end
 
+  def test_turn_left
+    initial_direction = 'S'
+    initial_positionX = 0
+    initial_positionY = 0
+    rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
+
+    rover.turn_left
+
+    assert_equal(rover.direction, 'E')
+    assert_equal(rover.positionX, initial_positionX)
+    assert_equal(rover.positionY, initial_positionY)
+  end
+
+  def test_turn_right
+    initial_direction = 'W'
+    initial_positionX = 0
+    initial_positionY = 0
+    rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
+
+    rover.turn_right
+
+    assert_equal(rover.direction, 'N')
+    assert_equal(rover.positionX, initial_positionX)
+    assert_equal(rover.positionY, initial_positionY)
+  end
+
 end
