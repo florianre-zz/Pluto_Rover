@@ -16,7 +16,7 @@ class TestRover < Test::Unit::TestCase
     initial_positionY = 0
     rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
 
-    rover.move_forward()
+    rover.move_forward
 
     assert_equal(rover.direction, initial_direction)
     assert_equal(rover.positionX, initial_positionX)
@@ -29,7 +29,7 @@ class TestRover < Test::Unit::TestCase
     initial_positionY = 5
     rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
 
-    rover.move_backward()
+    rover.move_backward
 
     assert_equal(rover.direction, initial_direction)
     assert_equal(rover.positionX, initial_positionX - 1)
