@@ -15,12 +15,15 @@ def process(command, rover)
 		case c
 			when 'F'
 				rover.move_forward
-			else
+			when 'B'
 				rover.move_backward
+      when 'L'
+        rover.turn_left
+      when 'R'
+        rover.turn_right
 		end
-		puts rover.direction
-		puts rover.positionX
-		puts rover.positionY
+
+		puts "Rover at #{rover.positionX}, #{rover.positionY} facing #{rover.direction}"
 	}
 end
 
