@@ -13,10 +13,8 @@ end
 def process(command, rover)
   command.each_char { |c|
 		case c
-			when 'F'
-				rover.move_forward
-			when 'B'
-				rover.move_backward
+			when 'F', 'B'
+				rover.move(c)
       when 'L'
         rover.turn_left
       when 'R'

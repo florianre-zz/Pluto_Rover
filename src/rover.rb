@@ -18,29 +18,20 @@ class Rover
 		@map = Map.new(@@width, @@height)
 	end
 
-	def move_forward
+	def move(command)
   	case @direction
 			when "N"
-				@positionY = (@positionY + 1) % @@height
+				new_position = command == 'F' ?  @positionY + 1 : @positionY - 1
+				@positionY = new_position % @@height
 			when "S"
-				@positionY = (@positionY - 1) % @@height
+				new_position = command == 'F' ? @positionY - 1 : @positionY + 1
+				@positionY = new_position % @@height
 			when "W"
-				@positionX = (@positionX - 1) % @@width
+				new_position = command == 'F' ? @positionX - 1 : @positionX + 1
+				@positionX = new_position % @@width
 			when "E"
-				@positionX = (@positionX + 1) % @@width
-		end
-	end
-
-	def move_backward
-		case @direction
-			when "N"
-				@positionY = (@positionY - 1) % @@height
-			when "S"
-				@positionY = (@positionY + 1) % @@height
-			when "W"
-				@positionX = (@positionX - 1) % @@width
-			when "E"
-				@positionX = (@positionX - 1) % @@width
+				new_position = command == 'F' ? @positionX + 1 : @positionX - 1
+				@positionX = new_position % @@width
 		end
 	end
 
