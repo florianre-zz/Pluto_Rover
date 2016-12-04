@@ -26,11 +26,7 @@ class Rover
 			if new_position < @map.height && new_position >= 0
 				@positionY = new_position
 			else
-				is_scented = map.has_scent(positionX, positionY)
-				if not is_scented
-					@lost = true
-        	map.leave_scent(positionX, positionY)
-      	end
+				handle_out_of_bounds()
 			end
 
 		when "S"
@@ -38,11 +34,7 @@ class Rover
 			if new_position < @map.height && new_position >= 0
 				@positionY = new_position
 			else
-				is_scented = map.has_scent(positionX, positionY)
-				if not is_scented
-					@lost = true
-					map.leave_scent(positionX, positionY)
-				end
+				handle_out_of_bounds()
 			end
 
 		when "W"
@@ -50,11 +42,7 @@ class Rover
 			if new_position < @map.width && new_position >= 0
 				@positionX = new_position
 			else
-				is_scented = map.has_scent(positionX, positionY)
-				if not is_scented
-					@lost = true
-					map.leave_scent(positionX, positionY)
-				end
+				handle_out_of_bounds()
 			end
 
 		when "E"
@@ -62,13 +50,8 @@ class Rover
 			if new_position < @map.width && new_position >= 0
 				@positionX = new_position
 			else
-				is_scented = map.has_scent(positionX, positionY)
-				if not is_scented
-					@lost = true
-					map.leave_scent(positionX, positionY)
-				end
+				handle_out_of_bounds()
 			end
-
 		end
 
 	end
@@ -77,6 +60,15 @@ class Rover
  		curr_index = @@possible_directions.index(@direction)
 		new_index = (command == 'L' ? (curr_index - 1) : (curr_index + 1)) % @@possible_directions.length
 		@direction = @@possible_directions[new_index]
+	end
+
+	private
+	def handle_out_of_bounds()
+		is_scented = @map.has_scent(@positionX, @positionY)
+		if not is_scented
+			@lost = true
+			@map.leave_scent(@positionX, @positionY)
+		end
 	end
 
 end
