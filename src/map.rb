@@ -10,5 +10,13 @@ class Map
 		@out_of_bound_coordinates = []
 	end
 
+	def leave_scent(positionX, positionY)
+		@out_of_bound_coordinates.push([positionX, positionY])
+	end
+
+	def has_scent(positionX, positionY)
+		return @out_of_bound_coordinates.include?([positionX, positionY])
+	end
+
 
 end
