@@ -19,11 +19,9 @@ def main
     rover = Rover.new(initial_direction, initial_positionX, initial_positionY, map)
 
 		process(command, rover)
-		termination = "\n"
-		if rover.lost
-			termination = "LOST\n"
-		end
+		termination = rover.lost ? "LOST\n" : "\n"
 		puts "#{rover.positionX} #{rover.positionY} #{rover.direction} #{termination}"
+
 		puts "Do you wish to continue? [Press Y for yes]"
 		response = STDIN.gets.chomp
 		want_to_continue = response == 'Y'
