@@ -42,8 +42,10 @@ def process(command, rover)
 			if rover.lost
 				break
 			end
+
 		when 'L', 'R'
 			rover.turn(c)
+      
 		end
 	}
 end
