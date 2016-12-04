@@ -23,7 +23,7 @@ class Rover
   	case @direction
 		when "N"
 			new_position = command == 'F' ?  @positionY + 1 : @positionY - 1
-			if new_position < @map.height && new_position >= 0
+			if new_position < @map.height && new_position >= map.minY
 				@positionY = new_position
 			else
 				handle_out_of_bounds()
@@ -31,7 +31,7 @@ class Rover
 
 		when "S"
 			new_position = command == 'F' ? @positionY - 1 : @positionY + 1
-			if new_position < @map.height && new_position >= 0
+			if new_position < @map.height && new_position >= map.minY
 				@positionY = new_position
 			else
 				handle_out_of_bounds()
@@ -39,7 +39,7 @@ class Rover
 
 		when "W"
 			new_position = command == 'F' ? @positionX - 1 : @positionX + 1
-			if new_position < @map.width && new_position >= 0
+			if new_position < @map.width && new_position >= map.minX
 				@positionX = new_position
 			else
 				handle_out_of_bounds()
@@ -47,7 +47,7 @@ class Rover
 
 		when "E"
 			new_position = command == 'F' ? @positionX + 1 : @positionX - 1
-			if new_position < @map.width && new_position >= 0
+			if new_position < @map.width && new_position >= map.minX
 				@positionX = new_position
 			else
 				handle_out_of_bounds()

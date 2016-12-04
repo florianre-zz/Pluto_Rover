@@ -4,7 +4,7 @@ require './src/rover.rb'
 class TestRover < Test::Unit::TestCase
 
   # TODO: Add more tests to check more cases
-  # TODO: Check correct functions are being called
+  # TODO: Check correct functions are being called (BDD)
 
   def test_move_forward
     initial_direction = 'N'
