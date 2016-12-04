@@ -27,16 +27,22 @@ def main
 end
 
 def process(command, rover)
-  command.each_char { |c|
+	command.each_char { |c|
 		case c
-			when 'F', 'B'
-				rover.move(c)
-      when 'L', 'R'
-        rover.turn(c)
+		when 'F', 'B'
+			rover.move(c)
+		when 'L', 'R'
+			rover.turn(c)
 		end
 
-		puts "#{c}: Rover at #{rover.positionX}, #{rover.positionY} facing #{rover.direction}"
+		if rover.lost
+			puts "LOST"
+			break
+		else
+			puts "#{c}: Rover at #{rover.positionX}, #{rover.positionY} facing #{rover.direction}"
+		end
 	}
+
 end
 
 main
