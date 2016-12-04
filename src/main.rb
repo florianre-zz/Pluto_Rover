@@ -1,6 +1,12 @@
 require './src/rover.rb'
 
 def main
+
+  uppper_right = STDIN.gets.chomp.delete(' ')
+  width = uppper_right[0].to_i
+	height = uppper_right[1].to_i
+  map = Map.new(width, height)
+
 	want_to_continue = true
   while want_to_continue
 		position = STDIN.gets.chomp.delete(' ')
@@ -10,7 +16,7 @@ def main
 		initial_positionX = position[0].to_i
 		initial_positionY = position[1].to_i
 		initial_direction = position[2]
-    rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
+    rover = Rover.new(initial_direction, initial_positionX, initial_positionY, map)
 
 		process(command, rover)
 

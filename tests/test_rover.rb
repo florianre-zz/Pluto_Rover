@@ -10,7 +10,8 @@ class TestRover < Test::Unit::TestCase
     initial_direction = 'N'
     initial_positionX = 0
     initial_positionY = 0
-    rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
+    map = Map.new(20, 20)
+    rover = Rover.new(initial_direction, initial_positionX, initial_positionY, map)
 
   	assert_equal(rover.direction, initial_direction)
     assert_equal(rover.positionX, 0)
@@ -21,7 +22,8 @@ class TestRover < Test::Unit::TestCase
     initial_direction = 'N'
     initial_positionX = 0
     initial_positionY = 0
-    rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
+    map = Map.new(20, 20)
+    rover = Rover.new(initial_direction, initial_positionX, initial_positionY, map)
 
     rover.move('F')
 
@@ -34,7 +36,8 @@ class TestRover < Test::Unit::TestCase
     initial_direction = 'E'
     initial_positionX = 4
     initial_positionY = 5
-    rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
+    map = Map.new(20, 20)
+    rover = Rover.new(initial_direction, initial_positionX, initial_positionY, map)
 
     rover.move('B')
 
@@ -47,7 +50,8 @@ class TestRover < Test::Unit::TestCase
     initial_direction = 'W'
     initial_positionX = 0
     initial_positionY = 0
-    rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
+    map = Map.new(20, 20)
+    rover = Rover.new(initial_direction, initial_positionX, initial_positionY, map)
 
     rover.turn('L')
 
@@ -60,7 +64,8 @@ class TestRover < Test::Unit::TestCase
     initial_direction = 'W'
     initial_positionX = 0
     initial_positionY = 0
-    rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
+    map = Map.new(20, 20)
+    rover = Rover.new(initial_direction, initial_positionX, initial_positionY, map)
 
     rover.turn('R')
 
@@ -73,7 +78,8 @@ class TestRover < Test::Unit::TestCase
     initial_direction = 'W'
     initial_positionX = 0
     initial_positionY = 0
-    rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
+    map = Map.new(20, 20)
+    rover = Rover.new(initial_direction, initial_positionX, initial_positionY, map)
 
     rover.move('F')
 
@@ -87,8 +93,9 @@ class TestRover < Test::Unit::TestCase
     initial_direction = 'N'
     initial_positionX = 0
     initial_positionY = 0
-    rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
-
+    map = Map.new(20, 20)
+    rover = Rover.new(initial_direction, initial_positionX, initial_positionY, map)
+    
     rover.move('B')
 
     assert_equal(rover.direction, initial_direction)
