@@ -74,33 +74,33 @@ class TestRover < Test::Unit::TestCase
     assert_equal(rover.positionY, initial_positionY)
   end
 
-  def test_wrapping_width
-    initial_direction = 'W'
-    initial_positionX = 0
-    initial_positionY = 0
-    map = Map.new(20, 20)
-    rover = Rover.new(initial_direction, initial_positionX, initial_positionY, map)
-
-    rover.move('F')
-
-    assert_equal(rover.direction, initial_direction)
-    assert_equal(rover.positionX, rover.map.width - 1)
-    assert_equal(rover.positionY, initial_positionY)
-
-  end
-
-  def test_wrapping_height
-    initial_direction = 'N'
-    initial_positionX = 0
-    initial_positionY = 0
-    map = Map.new(20, 20)
-    rover = Rover.new(initial_direction, initial_positionX, initial_positionY, map)
-    
-    rover.move('B')
-
-    assert_equal(rover.direction, initial_direction)
-    assert_equal(rover.positionX, initial_positionX)
-    assert_equal(rover.positionY, rover.map.height - 1)
-  end
+  # def test_wrapping_width
+  #   initial_direction = 'W'
+  #   initial_positionX = 0
+  #   initial_positionY = 0
+  #   map = Map.new(20, 20)
+  #   rover = Rover.new(initial_direction, initial_positionX, initial_positionY, map)
+  #
+  #   rover.move('F')
+  #
+  #   assert_equal(rover.direction, initial_direction)
+  #   assert_equal(rover.positionX, rover.map.width - 1)
+  #   assert_equal(rover.positionY, initial_positionY)
+  #
+  # end
+  #
+  # def test_wrapping_height
+  #   initial_direction = 'N'
+  #   initial_positionX = 0
+  #   initial_positionY = 0
+  #   map = Map.new(20, 20)
+  #   rover = Rover.new(initial_direction, initial_positionX, initial_positionY, map)
+  #
+  #   rover.move('B')
+  #
+  #   assert_equal(rover.direction, initial_direction)
+  #   assert_equal(rover.positionX, initial_positionX)
+  #   assert_equal(rover.positionY, rover.map.height - 1)
+  # end
 
 end
