@@ -3,8 +3,8 @@ require './src/rover.rb'
 def main
 
   uppper_right = STDIN.gets.chomp.delete(' ')
-  width = uppper_right[0].to_i
-	height = uppper_right[1].to_i
+  width = uppper_right[0].to_i + 1
+	height = uppper_right[1].to_i + 1
   map = Map.new(width, height)
 
 	want_to_continue = true
@@ -19,7 +19,11 @@ def main
     rover = Rover.new(initial_direction, initial_positionX, initial_positionY, map)
 
 		process(command, rover)
-
+		termination = "\n"
+		if rover.lost
+			termination = "LOST\n"
+		end
+		puts "#{rover.positionX} #{rover.positionY} #{rover.direction} #{termination}"
 		puts "Do you wish to continue? [Press Y for yes]"
 		response = STDIN.gets.chomp
 		want_to_continue = response == 'Y'
@@ -27,22 +31,18 @@ def main
 end
 
 def process(command, rover)
+  termination = "\n"
 	command.each_char { |c|
 		case c
 		when 'F', 'B'
 			rover.move(c)
+			if rover.lost
+				break
+			end
 		when 'L', 'R'
 			rover.turn(c)
 		end
-
-		if rover.lost
-			puts "LOST"
-			break
-		else
-			puts "#{c}: Rover at #{rover.positionX}, #{rover.positionY} facing #{rover.direction}"
-		end
 	}
-
 end
 
 main
