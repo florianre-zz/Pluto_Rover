@@ -1,5 +1,6 @@
 # Pluto_Rover
 To run: ruby src/main.rb
+
 To test: rake test
 
 The first line of input is the upper-right coordinates of the rectangular world.
