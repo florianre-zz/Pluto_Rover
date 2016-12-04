@@ -8,8 +8,8 @@ class Rover
   attr_reader :map
 
 	@@possible_directions = ['W', 'N', 'E', 'S']
-	@@width = 20
-	@@height = 20
+	@@width = 50
+	@@height = 50
 
   # TODO: Add check to see if position is in bounds of map
 	def initialize(direction, positionX, positionY)

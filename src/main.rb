@@ -1,20 +1,23 @@
 require './src/rover.rb'
 
 def main
-	initial_direction = 'N'
-	initial_positionX = 0
-	initial_positionY = 0
-	rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
+	want_to_continue = true
+  while want_to_continue
+		position = STDIN.gets.chomp.delete(' ')
+		command = STDIN.gets.chomp
+		# TODO: Check commands valid
 
-  puts "Rover at #{rover.positionX}, #{rover.positionY} facing #{rover.direction}"
-  puts "Change the initial parameters in the main method if you want."
-	puts "Enter a command of one or more of the following: F, B, L, R"
-	STDOUT.flush
-	command = gets.chomp
+		initial_positionX = position[0].to_i
+		initial_positionY = position[1].to_i
+		initial_direction = position[2]
+    rover = Rover.new(initial_direction, initial_positionX, initial_positionY)
 
-	# TODO: Check commands valid 
+		process(command, rover)
 
-	process(command, rover)
+		puts "Do you wish to continue? [Press Y for yes]"
+		response = STDIN.gets.chomp
+		want_to_continue = response == 'Y'
+  end
 end
 
 def process(command, rover)
